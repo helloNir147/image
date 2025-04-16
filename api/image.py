@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
+from pathlib import Path  # ✅ כדי לטעון את index.html
 import json
 import requests
 import httpagentparser
@@ -71,6 +72,15 @@ class handler(BaseHTTPRequestHandler):
         query = parse_qs(parsed_path.query)
         ip = self.client_address[0]
         user_agent = self.headers.get('User-Agent', 'Unknown')
+
+        # ✅ אם גולש נכנס ל- / (שורש) – שלח את הקובץ index.html
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            html_path = Path("index.html")
+            self.wfile.write(html_path.read_bytes())
+            return
 
         lat = query.get("lat", [None])[0]
         lon = query.get("lon", [None])[0]
