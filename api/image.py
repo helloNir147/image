@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
-from pathlib import Path  # ✅ כדי לטעון את index.html
+from pathlib import Path  
 import json
 import requests
 import httpagentparser
