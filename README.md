@@ -47,7 +47,9 @@ Important Notes
 	•	Do not share your webhook URL publicly.
 
 ⸻
-The same thing but it's in Hebrew🌵.
+
+It's the same thing, only it's in Hebrew🌵🩴.
+
 ⸻
 
 Discord IP Logger
